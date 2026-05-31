@@ -16,6 +16,11 @@ A UR consists of four cells occupying exactly two rows, two columns, and two box
 
 Cells r2c13 and r4c13 form a UR on candidates 6 and 8 in rows 2/4, columns 1/3, blocks 1/4.
 
+![UR — Two Solutions (1)](/examples/ur02.png)
+![UR — Two Solutions (2)](/examples/ur03.png)
+
+The same puzzle produces two valid solutions with 6 and 8 swapped in the four UR cells, illustrating why such a pattern must be avoided.
+
 ## Binary Universal Grave (BUG)
 
 A generalization of UR: all unsolved cells have only two candidates and every candidate appears exactly twice in every row, column, and box. Such a puzzle has two solutions.
