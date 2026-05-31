@@ -1,3 +1,7 @@
+---
+title: "Solving Techniques Overview"
+---
+
 # Solving Techniques Overview
 
 HoDoKu implements a comprehensive hierarchy of Sudoku solving techniques, ranging from the simplest to the most advanced. Each technique builds on the concepts of those before it.

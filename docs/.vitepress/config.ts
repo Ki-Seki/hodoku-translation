@@ -129,7 +129,7 @@ export default defineConfig({
 
   themeConfig: {
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/' }
+      { icon: 'github', link: 'https://github.com/Ki-Seki/hodoku-translation' }
     ],
     footer: {
       message: 'Content based on HoDoKu by Bernhard Hobiger. Licensed under GNU FDLv1.3.',
