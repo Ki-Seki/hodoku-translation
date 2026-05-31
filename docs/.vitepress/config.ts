@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/hodoku-translation/',
   title: 'HoDoKu Techniques',
   description: 'Sudoku Solving Techniques — Bilingual EN/CN',
   head: [
