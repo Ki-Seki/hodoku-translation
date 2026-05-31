@@ -19,9 +19,15 @@ export default defineConfig({
         sidebar: {
           '/techniques/': [
             {
-              text: 'Solving Techniques',
+              text: 'Getting Started',
               items: [
                 { text: 'Overview', link: '/techniques/' },
+                { text: 'Introduction', link: '/techniques/intro' },
+              ]
+            },
+            {
+              text: 'Solving Techniques',
+              items: [
                 { text: 'Singles', link: '/techniques/singles' },
                 { text: 'Intersections', link: '/techniques/intersections' },
                 { text: 'Hidden Subsets', link: '/techniques/hidden-subsets' },
@@ -72,9 +78,15 @@ export default defineConfig({
         sidebar: {
           '/zh/techniques/': [
             {
-              text: '解题技巧',
+              text: '入门',
               items: [
                 { text: '总览', link: '/zh/techniques/' },
+                { text: '简介', link: '/zh/techniques/intro' },
+              ]
+            },
+            {
+              text: '解题技巧',
+              items: [
                 { text: '唯数 (Singles)', link: '/zh/techniques/singles' },
                 { text: '交叉 (Intersections)', link: '/zh/techniques/intersections' },
                 { text: '隐性数集 (Hidden Subsets)', link: '/zh/techniques/hidden-subsets' },

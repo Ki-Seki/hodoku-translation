@@ -1,25 +1,59 @@
+---
+title: "Complex Fish (Franken/Mutant Fish)"
+---
+
 # Complex Fish (Franken/Mutant Fish)
 
-### (Finned) Franken Fish
-- At least one base or cover set is a box
-- Example (Franken Jellyfish): r125b7/c1257, eliminations r3c257, r4c12, r6c257 ≠ 8. Image: `/examples/ff401.png`
-- Example (Finned Franken Swordfish): c34b6/r346, fin r5c7, elimination r3c8. Image: `/examples/fff301.png`
-- Example (Finned Franken X-Wing): Row 6 + block 1 / cols 3,5, fin r2c1. Also known as Empty Rectangle. Image: `/examples/fff201.png`
-- Example (Cannibalistic Finned Franken Swordfish with Endo Fins): r15b3/c68b2, endo fins r1c89, cannibalistic elimination r1c6. Image: `/examples/fff302.png`
+## (Finned) Franken Fish
 
-### (Finned) Mutant Fish
-- All house types (rows, columns, boxes) in both base and cover sets
-- Example (Finned Mutant X-Wing): r6+c2/c6+b4, fin r7c2, elimination r7c6. Also known as 2-String-Kite/Turbot Fish. Image: `/examples/fmf201.png`
-- Example (Finned Mutant Jellyfish): r16c47/c1b358, fins r1c6 and r7c7, elimination r7c6. Image: `/examples/fmf401.png`
-- Example (Finned Mutant Whale): r35c89b49/r69c347b3, fins fr4c1 and efr9c8, elimination r9c1≠4. Image: `/examples/fmf601.png`
+If at least one of the base or cover sets is a box, the resulting fish is called a Franken Fish.
 
-### Siamese Fish
-- Two fishes of same type occupying same cells but yielding different eliminations
-- Component fish must be finned and differ in one cover set
-- Simplest form (Siamese Sashimi X-Wing) = Skyscraper
-- Example (Siamese Sashimi Swordfish, digit 1): r358/c259 fin r8c6 → eliminates 1 from r7c5; r358/c269 fin r5c5 → eliminates 1 from r4c6. Image: `/examples/sfbf301.png`
-- Example (Siamese Sashimi Jellyfish, digit 8): Two fins each, two eliminations. Image: `/examples/sfbf401.png`
-- Requires "Allow Duals/Siamese" option in HoDoKu
+![Franken Jellyfish Example](/examples/ff401.png)
+
+The example shows a Franken Jellyfish: r125b7 / c1257. Eliminations are r3c257, r4c12, r6c257 <> 8. It resembles a Basic Jellyfish in rows, but the fourth base set is a block rather than a row, making it Franken.
+
+![Finned Franken Swordfish Example](/examples/fff301.png)
+
+This example shows a Finned Franken Swordfish: c34b6 / r346 — three base/cover sets (Swordfish), with a block in the base sets (Franken). The fin is r5c7 (a base candidate "left over"). The elimination is r3c8.
+
+![Finned Franken X-Wing Example](/examples/fff201.png)
+
+This example shows a Finned Franken X-Wing: Base sets are Row 6 and block 1, cover sets are Columns 3 and 5. The fin is r2c1 (not covered). This pattern is also known as an Empty Rectangle.
+
+![Cannibalistic Finned Franken Swordfish with Endo Fins](/examples/fff302.png)
+
+This example shows a Cannibalistic Finned Franken Swordfish with Endo Fins: Base sets are Rows 1 and 5, box 3. Cover sets are Columns 6 and 8, box 2. The endo fins are r1c89 (in both base set row 1 and base set box 3). The cannibalistic elimination is r1c6 (contained in two cover sets: column 6 and box 2, and sees all fins).
+
+## (Finned) Mutant Fish
+
+When all possible types of houses (rows, columns, boxes) are allowed in both base and cover sets, the result is a Mutant Fish.
+
+![Finned Mutant X-Wing Example](/examples/fmf201.png)
+
+This example shows a Finned Mutant X-Wing: Base sets are Row 6 and column 2, cover sets are Column 6 and block 4. The fin is r7c2 (not covered). The elimination is r7c6. This is also known as a 2-String-Kite or Turbot Fish.
+
+![Finned Mutant Jellyfish Example](/examples/fmf401.png)
+
+This example shows a Finned Mutant Jellyfish: r16c47 / c1b358. Fins are r1c6 and r7c7. The elimination is r7c6.
+
+![Finned Mutant Whale Example](/examples/fmf601.png)
+
+This example shows a Finned Mutant Whale: 4 r35c89b49 / r69c347b3. Fins are fr4c1 and efr9c8. The elimination is r9c1 <> 4. This is unlikely for a human solver to find — the same elimination can be achieved via a Grouped Nice Loop or Forcing Chain.
+
+## Siamese Fish
+
+Two fishes of the same type occupying the same cells but yielding different eliminations, combined into one pattern. The component fish must be finned and differ in one cover set. The simplest form, a Siamese Sashimi X-Wing, is better known as a Skyscraper.
+
+![Siamese Sashimi Swordfish Example](/examples/sfbf301.png)
+
+This example shows a Siamese Sashimi Swordfish on digit 1: The first fish (r358 / c259, fin in r8c6) eliminates 1 from r7c5. The second fish (r358 / c269, fin in r5c5) eliminates 1 from r4c6.
+
+![Siamese Sashimi Jellyfish Example](/examples/sfbf401.png)
+
+This example shows a Siamese Sashimi Jellyfish on digit 8: Each fish has two fins. The first fish (r4678 / c1689, fins in r4c2 and r6c2) eliminates 8 from r5c1. The second fish (r4678 / c2689, fins in r7c1 and r8c1) eliminates 8 from r9c2.
+
+Siamese Fish require the "Allow Duals/Siamese" option to be enabled in HoDoKu.
 
 ---
-*Content based on [HoDoKu](https://hodoku.sourceforge.net/en/techniques.php) by Bernhard Hobiger, licensed under GNU FDLv1.3.*
+
+*Content based on [HoDoKu](https://hodoku.sourceforge.net/en/tech_fishc.php) by Bernhard Hobiger, licensed under GNU FDLv1.3.*

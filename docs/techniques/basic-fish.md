@@ -1,33 +1,53 @@
+---
+title: "Basic Fish"
+---
+
 # Basic Fish
 
-### Overview
-- Uses basic row/column constraints to eliminate candidates
-- Not every intersection needs a fish digit, but every base and cover set must contain at least one
+This page covers Sudoku fishing techniques that use basic row/column constraints to eliminate candidates. The techniques progress from 2-set to 4-set patterns. All examples build on concepts explained in the Fish (General) section. It is not necessary for every intersection between a base and a cover set to contain a fish digit, but every base and every cover set must contain at least one fish digit.
 
-### X-Wing (2 base sets / 2 cover sets)
-- Two rows as base, two columns as cover (or vice versa), single digit
-- All candidates in both base rows must fall within cover columns
-- Elimination: candidates in cover sets NOT in base sets
-- Example 1: Base rows 2,5; fish digit 5; candidates r2c58 and r5c58; cover cols 5,8; eliminate 5 from r4c5
-- Example 2: Base cols 1,5; cover rows 2,5
-- Logic: If r2c5=5 → r5c8=5; if r2c8=5 → r5c5=5. Either way r4c5≠5
-- Images: `/examples/bf201.png`, `/examples/bf202.png`
+## X-Wing (2 base sets / 2 cover sets)
 
-### Swordfish (3 base / 3 cover)
-- Same as X-Wing but with 3 base and 3 cover sets
-- Example 1: Base rows 1,2,9; cover cols 1,5,8; digit 2; eliminate from r7c1 and r6c8
-- Example 2: Base r2,4,7; cover c2,3,5; digit 4; eliminate 4 from multiple cells
-- Images: `/examples/bf301.png`, `/examples/bf302.png`
+The X-Wing uses two rows as base sets and two columns as cover sets (or vice versa) for a single digit. All candidates of that digit in both base rows must fall within the cover columns. Candidates in the cover sets that are NOT in the base sets can be eliminated.
 
-### Jellyfish (4 base / 4 cover)
-- Extends to 4 base and 4 cover sets
-- Example 1: Base r3,4,6,7; cover c1,2,5,9; digit 7
-- Example 2: Base r1,3,6,7; cover c2,5,8,9; digit 7
-- Both from Pure Jellyfish Collection on New Sudoku Player's Forum
-- Images: `/examples/bf401.png`, `/examples/bf402.png`
+![X-Wing Example 1](/examples/bf201.png)
 
-### Larger Basic Fish
-- Possible but unnecessary — a complementary smaller fish always exists for the same eliminations
+Left example: Base sets are rows 2 and 5, fish digit is 5. Candidate positions are r2c58 and r5c58. Cover sets are columns 5 and 8. The elimination is 5 in r4c5 (in a cover column but not in a base row).
+
+![X-Wing Example 2](/examples/bf202.png)
+
+Right example: Base sets are columns 1 and 5, cover sets are rows 2 and 5.
+
+The elimination logic: Rows 2 and 5 both have only two candidates 5. If r2c5=5, r2c8 and r5c5 cannot be 5. This forces r5c8=5. Conversely, if r2c8=5, then r5c5=5. Either r2c5 or r5c5 must be 5, so r4c5 cannot be 5.
+
+## Swordfish (3 base sets / 3 cover sets)
+
+Swordfish uses the same principle as X-Wing but with three base and three cover sets instead of two.
+
+![Swordfish Example 1](/examples/bf301.png)
+
+Left example: Base sets are rows 1, 2, and 9. Cover sets are columns 1, 5, and 8. Fish digit is 2. Eliminations are candidates 2 at r7c1 and r6c8 (cover candidates not in base sets).
+
+![Swordfish Example 2](/examples/bf302.png)
+
+Right example: Base sets are r2, r4, r7. Cover sets are c2, c3, c5. Fish digit is 4. Eliminations include 4 from r3c235, r6c235, r8c235, and r9c23.
+
+## Jellyfish (4 base sets / 4 cover sets)
+
+Jellyfish extends the pattern to four base and four cover sets.
+
+![Jellyfish Example 1](/examples/bf401.png)
+
+Left example: Base sets are r3, r4, r6, r7. Cover sets are c1, c2, c5, c9. Fish digit is 7. Eliminations include all candidates marked in red (multiple cells).
+
+![Jellyfish Example 2](/examples/bf402.png)
+
+Right example: Base sets are r1, r3, r6, r7. Cover sets are c2, c5, c8, c9. Fish digit is 7. Both Jellyfish examples are from the Pure Jellyfish Collection on the New Sudoku Player's Forum.
+
+## Larger Basic Fish
+
+Basic Fish larger than Jellyfish are of course possible, but unnecessary: For any larger fish a complementary smaller one will exist.
 
 ---
-*Content based on [HoDoKu](https://hodoku.sourceforge.net/en/techniques.php) by Bernhard Hobiger, licensed under GNU FDLv1.3.*
+
+*Content based on [HoDoKu](https://hodoku.sourceforge.net/en/tech_fishb.php) by Bernhard Hobiger, licensed under GNU FDLv1.3.*

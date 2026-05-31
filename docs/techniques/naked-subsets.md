@@ -1,85 +1,79 @@
 ---
-title: Naked Subsets
+title: "Naked Subsets"
 ---
 
 # Naked Subsets
 
-Naked Subsets occur when N cells within a house collectively contain only N candidates. Those candidates are locked into those cells and can be eliminated from all other cells in the house.
-
----
+Naked Subsets are similar to Hidden Subsets, the only difference is that it is not about candidates being confined to cells (as in Hidden Subsets), but about cells containing only a certain number of candidates.
 
 ## Naked Pair / Locked Pair
 
-Two cells in the same house share only the same two candidates. Those two candidates must go in those two cells, so they can be eliminated from all other cells in that house.
+### Naked Pair
 
-**Locked Pair:** When the two cells span two houses (e.g., a row and a block), eliminations apply to both houses. This makes the pattern more powerful since it can eliminate candidates in a larger area.
+If you can find two cells, both in the same house, that have only the same two candidates left, you can eliminate those two candidates from all other cells in that house.
 
-**Example 1 (Row):** r8c3 and r8c4 share candidates 3 and 9. Since one cell must be 3 and the other 9, eliminate 3 and 9 from all other cells in row 8 (e.g., 3 from r8c2).
+![Naked Pair Example 1](/examples/n201.png)
 
-![Naked Pair row example](/examples/n201.png)
+Left example: cells r8c3 and r8c4 are both in the same house (row 8) and have both only candidates 3 and 9 left. It follows immediately that one of the cells has to be 3 and the other 9 (which is which is yet unknown). But we can safely say that r8c2 can not be 3. The sudoku solves with singles after that.
 
-**Example 2 (Box):** r4c5 and r5c6 form a Naked Pair in box 5 with shared candidates. Eliminate those candidates from all other cells in box 5.
+![Naked Pair Example 2](/examples/n202.png)
 
-![Naked Pair box example](/examples/n202.png)
+The example on the right shows a Naked Pair in a box: r4c5, r5c6 form a Naked Pair in box 5 thus eliminating candidates 8 and 9 from all other cells in that box.
 
-**Locked Pair Example 1:** r3c7 and r3c9 form a Locked Pair in row 3 and block 3. Eliminations apply to both row 3 and block 3.
+### Locked Pair
 
-![Locked Pair example 1](/examples/l201.png)
+If the two cells that form the Naked Pair are not only confined to one but to two houses (a row and a block or a column and a block), they are sometimes called a Locked Pair. Candidates can be eliminated from both houses.
 
-**Locked Pair Example 2:** A pair in row 8 that also falls within block 8. Eliminations apply to both houses.
+![Locked Pair Example 1](/examples/l201.png)
 
-![Locked Pair example 2](/examples/l202.png)
+On the left side r3c79 is a Locked Pair in row 3 and block 3, it therefore eliminates 2 from r3c3 (row 3) and from r1c9 (block 3).
 
----
+![Locked Pair Example 2](/examples/l202.png)
+
+The right side shows a Locked Pair in row 8 and block 8 eliminating 18 candidates.
 
 ## Naked Triple / Locked Triple
 
-Three cells within a house collectively contain only three candidates. Those candidates can be eliminated from all other cells in that house.
+### Naked Triple
 
-Not all three cells must contain all three candidates. Each cell may have two or three of the candidates, as long as the total across all three cells does not exceed three distinct candidates.
+If you can find three cells, all in the same house, that have only the same three candidates left, you can eliminate those candidates from all other cells in that house. It is important to note that not all cells must contain all three candidates, but there must not be more than three candidates in the three cells all together.
 
-**Example 1 (Column):** r2c2, r4c2, and r5c2 collectively hold only candidates 3, 6, and 9. Eliminate 6 from r1c2 and other eliminations from remaining cells in column 2.
+![Naked Triple Example 1](/examples/n301.png)
 
-![Naked Triple column example](/examples/n301.png)
+Left example: cells r2c2, r4c2, and r5c2 are all in the same house (column 2) and together have only candidates 3, 6, and 9 left. It follows immediately, that one of the cells has to be 3, another 6, and the last 9 (which is which is yet unknown). But we can safely say that r1c2 cannot be 6. The sudoku solves with singles after that.
 
-**Example 2 (Box):** r3c4, r3c5, and r1c5 form a Naked Triple in box 2. The three cells share only three candidates between them.
+![Naked Triple Example 2](/examples/n302.png)
 
-![Naked Triple box example](/examples/n302.png)
+The example on the right shows a Naked Triple in a box: r3c45, r1c5 form a Naked Triple in box 2 thus eliminating candidates 1, 2, and 6 from all other cells in that box.
 
-**Locked Triple:** When the three cells span two houses (e.g., a row and a block), eliminations apply to both houses, increasing the number of cells that can be pruned.
+### Locked Triple
 
-**Locked Triple Example 1:**
+If three cells forming a Naked Triple span two houses, they form a Locked Triple. Eliminations apply to both houses.
 
-![Locked Triple example 1](/examples/l301.png)
+![Locked Triple Example 1](/examples/l301.png)
 
-**Locked Triple Example 2:**
+Left example: r789c5 is a Locked Triple in column 5 and block 8, removing 9 from r8c4 (block 8) and from r2c5 (column 5).
 
-![Locked Triple example 2](/examples/l302.png)
+![Locked Triple Example 2](/examples/l302.png)
 
----
+Right example: A Locked Triple on 5, 6, 7 in row 5 and block 6 eliminates 18 candidates.
 
 ## Naked Quadruple
 
-Four cells within a house collectively contain only four candidates. Those candidates can be eliminated from all other cells in that house.
+Four cells in the same house collectively containing only four candidates allow those candidates to be eliminated from all other cells in that house. A Locked Quadruple cannot exist because an intersection between a row or column and a box can have only three cells.
 
-A Locked Quadruple cannot exist — an intersection between a block and a row/column can have at most 3 cells, so four cells cannot span two houses.
+![Naked Quadruple Example 1](/examples/n401.png)
 
-**Example 1 (Row):** Candidates 3, 4, 8, and 9 are confined to r8c1, r8c3, r8c4, and r8c6 in row 8. Eliminate these candidates from other cells in row 8.
+Left example: Candidates 3, 4, 8, 9 in cells r8c1346 in row 8, eliminating 3 and 8 from r8c7 and 9 from r8c8.
 
-![Naked Quadruple row example](/examples/n401.png)
+![Naked Quadruple Example 2](/examples/n402.png)
 
-**Example 2 (Box):** Candidates 4, 6, 7, and 9 are confined to r8c2, r7c3, r8c3, and r9c3 in block 7. Eliminate these candidates from other cells in block 7.
-
-![Naked Quadruple box example](/examples/n402.png)
-
----
+Right example: Candidates 4, 6, 7, 9 in cells r8c2, r789c3 in block 7.
 
 ## How to Find Them
 
-- Best done when all pencil marks (candidates) are filled in for the grid.
-- Naked Subsets are rather easy to spot visually: look for groups of cells in a house that share a limited set of candidates.
-- They are very efficient, often unlocking further progress in the puzzle.
+Finding Naked Subsets is best done, when all remaining candidates have been penciled in into the grid. Since the cells that are part of the subset have to contain a certain number of candidates only, they are rather easy to spot and very efficient.
 
 ---
 
-*Content based on [HoDoKu](https://hodoku.sourceforge.net/en/techniques.php) by Bernhard Hobiger, licensed under GNU FDLv1.3.*
+*Content based on [HoDoKu](https://hodoku.sourceforge.net/en/tech_naked.php) by Bernhard Hobiger, licensed under GNU FDLv1.3.*

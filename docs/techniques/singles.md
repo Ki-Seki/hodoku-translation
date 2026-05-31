@@ -1,79 +1,63 @@
 ---
-title: Singles Techniques
+title: "Singles"
 ---
 
-# Singles Techniques
+# Singles
 
-Singles are the most fundamental Sudoku solving techniques. They involve placing a digit in a cell when it is the only possibility.
-
----
+Singles are the most basic techniques in solving sudokus. There are three types: Full House, Hidden Single, and Naked Single.
 
 ## Full House / Last Digit
 
-The simplest technique: the last digit that can be placed in a house.
+A Full House is simply the last digit that can be placed in a house. If it is the last digit for the whole grid, it is sometimes called "Last Digit".
 
-When only one empty cell remains in a row, column, or block, the missing digit goes there. Since every house must contain the digits 1 through 9 exactly once, the remaining digit is trivially determined.
+![Full House Example 1](/examples/fh01.png)
 
-**Example 1:** Block 8 has one empty cell remaining. The digits 1, 2, 3, 4, 5, 7, 8, 9 are already placed, so digit 6 goes in r9c6.
+In the example above on the left, block 8 has only one unfilled cell left. The only missing digit is 6, r9c6 must therefore be a 6.
 
-![Full House example 1](/examples/fh01.png)
+![Full House Example 2](/examples/fh02.png)
 
-**Example 2:** Row 5 is missing only one digit. All other cells in the row are filled, so the last digit is placed in the remaining cell.
-
-![Full House example 2](/examples/fh02.png)
-
----
+In the example on the right the Full House is in row 5: Only digit 1 is missing.
 
 ## Hidden Single
 
-For a given digit and a given house, only one cell can contain that digit.
+Hidden Single means that for a given digit and house only one cell is left to place that digit. The cell itself has more than one candidate left, the correct digit is thus hidden amongst the rest.
 
-The target cell may have multiple candidates, but when you look at the house (row, column, or block), the digit is "hidden amongst the rest" of the candidates in that cell.
+![Hidden Single Example 1](/examples/h101.png)
 
-**Example 1:** r3c4 has candidates 4, 6, 9. Looking at row 3, digit 6 can only go in r3c4 (all other cells in row 3 already contain 6 or cannot hold it). Therefore r3c4 = 6.
+Look at cell r3c4 in the example on the left: The digits 4, 6, and 9 are possible according to the rule. If we look closely at row 3, however, we notice that in this row digit 6 can only be placed in r3c4. r3c1, r3c2 and r3c3 are blocked by digit 6 in r2c3, r3c6 is blocked by digit 6 in r6c6. That means that 6 can be placed in r3c4.
 
-![Hidden Single example 1](/examples/h101.png)
+![Hidden Single Example 2](/examples/h102.png)
 
-**Example 2:** r6c4 is a Hidden Single. Digit 3 is the only 3 in row 6, in column 4, and in block 5 simultaneously. This makes it a Hidden Single in three different houses.
-
-![Hidden Single example 2](/examples/h102.png)
-
-### Cross-Hatching
-
-Cross-hatching is a manual technique for finding Hidden Singles. Concentrate on one digit and one block. Mentally draw lines through all rows and columns that already contain that digit. The remaining uncovered cells in the block are the possible positions. If only one cell remains, you have found a Hidden Single.
-
-![Cross-hatching example](/examples/h103.png)
-
-### Using Filters
-
-Computer solvers can use digit filters to highlight all occurrences of a single digit, making Hidden Singles much easier to identify visually.
-
-![Filter example](/examples/h104.png)
-
----
+In the right example one of several Hidden Singles can be found in r6c4: Digit 3 is the only 3 in row 6, column 4 and block 5.
 
 ## Naked Single
 
-In a specific cell, only one digit remains possible.
+Naked Single means that in a specific cell only one digit remains possible (the last remaining candidate has no other candidates to hide behind and is thus naked). The digit must then go into that cell.
 
-All cells that can "see" the target cell (i.e., share a row, column, or block) collectively contain every digit except one. That remaining digit must go in the target cell.
+![Naked Single Example 1](/examples/n101.png)
 
-**Example 1:** r6c7 — examining all cells that see it (same row, same column, same block) reveals they contain every digit except 6. Therefore r6c7 = 6.
+Example on the left: Look at cell r6c7: It is not a hidden single. Row 6 has another possible 6 in r6c4, c7 and b6 both have another possible 6 in r5c7. But when we examine all cells that can see r6c7, we notice that they contain all digits except 6. 6 is therefore the last possible candidate for r6c7.
 
-![Naked Single example 1](/examples/n101.png)
+![Naked Single Example 2](/examples/n102.png)
 
-**Example 2:** r3c3 is a Naked Single. Placing 3 in r3c4 (which is a Hidden Single) removes 3 as a candidate from r3c3, unlocking the Naked Single.
-
-![Naked Single example 2](/examples/n102.png)
-
----
+In the sudoku on the right setting 3 into r3c4 (a Hidden Single) unlocks the Naked Single in r3c3: It's the last possible digit there and can be placed.
 
 ## How to Find Them
 
-- **Hidden Singles** are easy to spot by hand using the cross-hatching technique. Focus on one digit at a time and scan each house.
-- **Naked Singles** are easier to find when pencil marks (candidates) are filled in for all cells. With pencil marks, a Naked Single is simply a cell with only one candidate remaining.
-- With computer assistance, Naked Singles are trivial to detect, but Hidden Singles can sometimes be harder to find visually since they require scanning across multiple candidates in a house.
+Finding Full Houses is self explanatory. Hidden and Naked Singles are not so easy to spot. They are a good example for why it is so difficult to specify a difficulty level for techniques: When playing with pencil and paper, Hidden Singles are easy to find, but seeing Naked Singles can take a while. When playing with a computer program such as HoDoKu that automatically keeps track of remaining possible candidates, finding Naked Singles is trivial but finding Hidden Singles can be quite a chore because of the amount of candidates left in the grid (especially early on in the game).
+
+When playing by hand, Hidden Singles can be found by "cross hatching": Concentrate on one digit and one block. Draw lines through all rows and columns that already have an instance of that digit set (in your mind only please). If only one cell is left, that cell is a Hidden Single for that digit.
+
+![Cross Hatching Example](/examples/h103.png)
+
+The image on the left shows that technique for digit 3 in block 5: All cells in that block are "blocked" by a placed digit 3, r6c4 is the last possible cell for digit 3 in block 5.
+
+![Filter Example](/examples/h104.png)
+
+The image on the right shows another possibility: Using filters. If filters are enabled, Singles and Locked Candidates moves can be found easily.
+
+Finding Naked Singles by hand involves either filling in all possible candidates or trying promising cells (count all digits in the cells seeing your intended target cell; if only one possibility remains, it is a Naked Single).
 
 ---
 
-*Content based on [HoDoKu](https://hodoku.sourceforge.net/en/techniques.php) by Bernhard Hobiger, licensed under GNU FDLv1.3.*
+*Content based on [HoDoKu](https://hodoku.sourceforge.net/en/tech_singles.php) by Bernhard Hobiger, licensed under GNU FDLv1.3.*
