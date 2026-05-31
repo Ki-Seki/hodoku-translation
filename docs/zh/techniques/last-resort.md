@@ -22,6 +22,12 @@ title: "最后手段 (Methods of Last Resort)"
 
 证明r1c7=4的示例：r4c4=1 => r8c4=6 => r6c8=6 => r1c8=3 => r1c7=4。r4c6=1 => r4c7=3 => r1c7=4。r4c7=1 => r5c8=5 => r1c8=3 => r1c7=4。含义：对于行4中数字1的每种可能放置，r1c7都是4。
 
+三条链分别追踪如下：
+
+![强制链真相 — 链1（r4c4=1 → r1c7=4）](/examples/fcv02.png)
+![强制链真相 — 链2（r4c6=1 → r1c7=4）](/examples/fcv03.png)
+![强制链真相 — 链3（r4c7=1 → r1c7=4）](/examples/fcv04.png)
+
 ### 矛盾（同一前提，不兼容的推论）
 
 证明格子不能包含某数字，从宫中消除某数字的所有实例，在格子中设置多个数字，或在宫中设置某数字的多个实例。
@@ -33,6 +39,12 @@ title: "最后手段 (Methods of Last Resort)"
 ![强制网示例1](/examples/fnv01.png)
 
 证明r1c2=5的示例：格子r7c2有三个候选数：6、7和9。所有都导致r1c2=5。
+
+三条分支分别追踪如下：
+
+![强制网 — 分支（r7c2=6）](/examples/fnv02.png)
+![强制网 — 分支（r7c2=7）](/examples/fnv03.png)
+![强制网 — 分支（r7c2=9）](/examples/fnv04.png)
 
 ## 海怪鱼 (Kraken Fish)
 
@@ -57,6 +69,12 @@ title: "最后手段 (Methods of Last Resort)"
 ![海怪鱼2型示例](/examples/kf201.png)
 
 示例：刺身X-Wing：4 r15 c12 fr1c7 fr1c9。覆盖集列2只有一个基础候选数（r5c2）；r3c2是覆盖候选数。链一起证明r5c9不能是7。
+
+建立真相的各条链：
+
+![海怪鱼2型 — 链1（覆盖候选数r3c2）](/examples/kf202.png)
+![海怪鱼2型 — 链2（鳍r1c7）](/examples/kf203.png)
+![海怪鱼2型 — 链3（鳍r1c9）](/examples/kf204.png)
 
 ## 暴力破解 (Brute Force)
 

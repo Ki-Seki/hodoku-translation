@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/hodoku-translation/',
   title: 'HoDoKu Techniques',
   description: 'Sudoku Solving Techniques — Bilingual EN/CN',
   head: [
@@ -128,7 +129,7 @@ export default defineConfig({
 
   themeConfig: {
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/' }
+      { icon: 'github', link: 'https://github.com/Ki-Seki/hodoku-translation' }
     ],
     footer: {
       message: 'Content based on HoDoKu by Bernhard Hobiger. Licensed under GNU FDLv1.3.',
